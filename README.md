@@ -29,7 +29,7 @@ a) I removed the global variable, which in 99% of the cases I learned could resu
 
 b) Fixed my code where when the player would decide to review his choices (step 4) his balance would be reduced to 0.
 
-c) Cleaned overall my code and tried to make it look much cleaner.
+c) Cleaned overall my code and tried to make it look much nicer to the eye.
 
 d) Fixed my mistake where I had previously confused rows and columns, making the whole code look much more confusing than it actually was.
 
