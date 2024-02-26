@@ -1,0 +1,112 @@
+import random
+
+TOTAL_LINES = 5
+MAX_BET = 100
+MIN_BET = 0
+LINE_SYMBOLS = {"Apple": 2, "Banana": 2, "Orange": 2, "Peach": 2, "Watermelon": 2, "Grape": 2, "Kiwi": 2, "Cherry": 2,
+                "Pineapple": 2, "Pear": 1}
+
+value_list = list(LINE_SYMBOLS.keys())
+
+def deposit():
+    while True:
+        amount = input("Insert the amount that you would like to deposit €")
+        if amount.isdigit():
+            amount = int(amount)
+            if amount > MAX_BET:
+                print(f"Slow down Buckaroo! Let's start by little at a time. Maximum amount allowed is €{MAX_BET}")
+            elif amount == 69:
+                print("Nice  (͡°͜ʖ͡°)")
+                break
+            elif amount > MIN_BET:
+                break
+            else:
+                print(f"You can't win if you don't first bet! Minimum amount must be greater than €{MIN_BET}")
+    return amount
+
+
+total_balance = int(deposit())
+
+
+
+def line_numbers():
+    while True:
+        lines = input(f"You can now place your bet.\n"
+                      f"On how many lines would you like to try your luck? Please choose between 3 and {TOTAL_LINES} -> ")
+        if lines.isdigit():
+            lines = int(lines)
+            if 1 <= lines <= TOTAL_LINES:
+                break
+            elif lines > TOTAL_LINES:
+                print("Wooow, not so fast! Please place your bet on a valid number of lines")
+            else:
+                print("You can't win if you don't bet anywhere! Please place your bet on a valid line")
+
+    return lines
+
+def bet_amount(total_balance):
+    while True:
+        amount = input(f"Insert the amount that you would like to bet € ")
+        if amount.isdigit():
+            amount = int(amount)
+            if 1 <= amount <= total_balance:
+                break
+            if amount == 0:
+                print("You must bet something! Please retry.")
+            else:
+                print(f"You are currently missing €{amount - total_balance} to place that bet. Your inserted amount cannot exceed your current total balance of {total_balance}.")
+    return amount
+
+def continue_bet(bet, column):
+    while True:
+        user_input = input(f"Now we are talking! You are betting €{bet} on {column} lines, for a whooping total of €{bet * column}. Do you want to continue? ").upper()
+        if user_input == "YES":
+            return True
+        elif user_input == "NO":
+            print("You will now be redirected to the Start screen")
+            return False
+        else:
+            print("Ops. Cannot bet that!")
+            user_input = input(f"You can retry! You are betting €{bet} on {column} lines, for a whooping total of €{bet * column}. Do you want to continue? ").upper()
+    return False
+
+def symbol_in_column(value_list, column, bet):
+    random_signs = random.sample(value_list, column)
+    unique_symbols = set(random_signs)
+    symbols_string = "|".join(unique_symbols)
+    if continue_bet(bet, column):
+        print(f"{'*CLING*' * 3} {symbols_string}")
+    return unique_symbols
+
+def win_conditions(symbols):
+    symbol_list = list(symbols)
+    for symbol in symbol_list:
+        if symbol_list.count(symbol) >= 3:
+            return True
+    return False
+
+def main():
+    global total_balance
+    initial_deposit = total_balance  # Store the initial deposit amount
+    column = line_numbers()
+    bet = bet_amount(total_balance)
+    symbols = symbol_in_column(value_list, column, bet)
+    if win_conditions(symbols):
+        print("Wow! You won!! Congratulations!")
+        total_balance += bet * column
+    else:
+        print("Better luck next time! :( ")
+        total_balance -= bet  # Deduct bet amount from total balance regardless of outcome
+    if total_balance != initial_deposit:  # Update balance only if it's not the initial deposit
+        if total_balance >= 0:  # Ensure the balance does not go negative
+            print(f"Your current balance is €{total_balance}")
+        else:
+            total_balance = 0  # Reset balance to 0 if it goes negative
+            print("Oops! Your balance went negative. Resetting to 0.")
+    else:
+        print(f"Your current balance is €{initial_deposit}")
+
+while total_balance > 0:
+    main()
+else:
+    print("Time to leave. Sorry to see you go :(")
