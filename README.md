@@ -13,6 +13,9 @@ Updated comment 2.0 = code updates:
 
 
 
+
+
+
 UPDATED - Own comment:
 
 - I had already sent the exercise and after following the comment of the teacher, I reviewed and updated the code:
