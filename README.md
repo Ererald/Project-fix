@@ -1,3 +1,32 @@
+Updated comment 2.0 = code updates:
+
+-In this new updated code, I followed the teacher suggestion and the project requirement by adding the feature to Save and Load the game.
+-Added a feature where the user is asked if he wants to proceed or end the game after each round of play. Previously the user would play until his balance had to reach 0€.
+-Reduced the amount of symbols to higher the chances of win conditions.
+-Considering that win conditions = 3 same symbols, removed the possibility for the user to place a bet only on 1 column.
+-When the user balance reaches 0, added the possibility for the user to chose if he wants to quit playing, or play again and be redirected to the deposit screen.
+
+
+
+
+UPDATED - Own comment:
+
+- I had already sent the exercise and after following the comment of the teacher, I reviewed and updated the code:
+
+a) I removed the global variable, which in 99% of the cases I learned could result in a problem. 
+
+b) Fixed my code where when the player would decide to review his choices (step 4) his balance would be reduced to 0.
+
+c) Cleaned overall my code and tried to make it look much nicer to the eye.
+
+d) Fixed my mistake where I had previously confused rows and columns, making the whole code look much more confusing than it actually was.
+
+
+
+
+
+Project Description: 
+
 For this task, I decided to create a game.
 This idea originated immediatly after our first exercise where we had to create a rock-paper-scissor game. To me this was a fairly simple but at the same time complete project.
 I believe I put to good use the lessons and new things that I learned throughout the course.
@@ -19,20 +48,6 @@ The game continues if the user decides to press Yes, otherwise the user is redir
 Otherwise, the amount is substracted.
 
 6- The loop continues until the player’s balance ends.
-
-
-
-UPDATED - Own comment:
-- I had already sent the exercise and after following the comment of the teacher, I reviewed and updated the code:
-
-a) I removed the global variable, which in 99% of the cases I learned could result in a problem. 
-
-b) Fixed my code where when the player would decide to review his choices (step 4) his balance would be reduced to 0.
-
-c) Cleaned overall my code and tried to make it look much nicer to the eye.
-
-d) Fixed my mistake where I had previously confused rows and columns, making the whole code look much more confusing than it actually was.
-
 
 
 -I am aware of different things that can be improved in the code. Acording to my math, the potential percentage that the player wins should be around 2-3%.
