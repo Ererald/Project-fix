@@ -1,9 +1,13 @@
 Updated comment 2.0 = code updates:
 
 -In this new updated code, I followed the teacher suggestion and the project requirement by adding the feature to Save and Load the game.
+
 -Added a feature where the user is asked if he wants to proceed or end the game after each round of play. Previously the user would play until his balance had to reach 0€.
+
 -Reduced the amount of symbols to higher the chances of win conditions.
+
 -Considering that win conditions = 3 same symbols, removed the possibility for the user to place a bet only on 1 column.
+
 -When the user balance reaches 0, added the possibility for the user to chose if he wants to quit playing, or play again and be redirected to the deposit screen.
 
 
